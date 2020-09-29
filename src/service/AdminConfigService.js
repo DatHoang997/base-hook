@@ -3,7 +3,6 @@ import axios from 'axios'
 import BigNumber from 'big-number'
 import {thousands} from '@/util/help.js'
 
-
 let API_URL = process.env.SERVER_URL
 const API = {
   PUT_POC_STATS   : API_URL + '/pocstats/',
