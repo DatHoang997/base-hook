@@ -20,7 +20,7 @@ const stats = () => {
         </Col>
       </Row>
       <Row>
-        <Col span={{}}></Col>
+        <Col span={4}></Col>
         <Col span={10}>
           <Input onChange={(e) => {setSrmAddress(e.target.value);}} />
         </Col>
