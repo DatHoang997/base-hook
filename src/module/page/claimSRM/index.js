@@ -13,19 +13,19 @@ const stats = () => {
   console.log(srmAddress)
   return (
     <StandardPage>
-      <Row>
-        <Col span='4'></Col>
-        <Col span='20'>
+       <Row>
+        <Col span={4}></Col>
+        <Col span={20}>
           <p>SRM address:</p>
         </Col>
       </Row>
       <Row>
-        <Col span='4'></Col>
-        <Col span='10'>
+        <Col span={{}}></Col>
+        <Col span={10}>
           <Input onChange={(e) => {setSrmAddress(e.target.value);}} />
         </Col>
-        <Col span='1'></Col>
-        <Col span='4'>
+        <Col span={1}></Col>
+        <Col span={4}>
           <Button type='primary' onClick={claimSRM}>Submit</Button>
         </Col>
       </Row>
