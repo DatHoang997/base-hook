@@ -5,7 +5,7 @@ import { createBrowserHistory as createHistory } from 'history'
 import { routerMiddleware } from 'react-router-redux'
 
 import reducer from './reducer'
-// import action from './action';
+// import action from './action'
 
 const history = createHistory()
 const middleware = routerMiddleware(history)
@@ -19,7 +19,7 @@ const store = createStore(
   )
 )
 store.history = history
-// store.actions = action;
+// store.actions = action
 
 store.getRedux = (name) => {
   try {

@@ -3,7 +3,7 @@ import store from '@/store'
 import {USER_ROLE} from '@/constant'
 import {api_request} from './'
 import {CONTRACTS} from '@/constant'
-import Web3 from "web3";
+import Web3 from "web3"
 
 
 // export const setupWeb3 = async (callback = null) => {

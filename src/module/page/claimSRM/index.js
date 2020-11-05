@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import StandardPage from '../StandardPage'
 import { Input, Row, Col, Button } from 'antd'
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.css'
 import './style.scss'
 
 const stats = () => {
@@ -33,4 +33,4 @@ const stats = () => {
   )
 }
 
-export default stats;
+export default stats

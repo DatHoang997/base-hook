@@ -18,18 +18,18 @@ export default class extends BaseService {
   async pocStats(pocBalance, dead , amount = '', price = '', txHash = '') {
     var that = this
     const pocStatsRedux = this.store.getRedux('pocStats')
-    let formData = new FormData();
+    let formData = new FormData()
     if (amount != '') {
-      formData.append("amount", amount);
+      formData.append("amount", amount)
     }
     if (price != '') {
-      formData.append("price", price);
+      formData.append("price", price)
     }
     if (txHash != '') {
-      formData.append("txHash", txHash);
+      formData.append("txHash", txHash)
     }
-    formData.append("pocBalance", pocBalance);
-    formData.append("dead", dead);
+    formData.append("pocBalance", pocBalance)
+    formData.append("dead", dead)
     try {
       let response = await axios.put(API.PUT_POC_STATS, formData,
         {
@@ -47,9 +47,9 @@ export default class extends BaseService {
       }
       that.dispatch(pocStatsRedux.actions.pocStats_update(data))
       that.history()
-      return false;
+      return false
     } catch (error) {
-      return error.response.data;
+      return error.response.data
     }
   }
 
@@ -73,7 +73,7 @@ export default class extends BaseService {
         that.history()
         that.PocPriceVND()
         that.PocPriceUSD()
-        return false;
+        return false
       })
     } else {
       return "Error"
@@ -115,9 +115,9 @@ export default class extends BaseService {
   }
 
   async setRole(role, wallet) {
-    let formData = new FormData();
-    formData.append("role", role);
-    formData.append("wallet", wallet);
+    let formData = new FormData()
+    formData.append("role", role)
+    formData.append("wallet", wallet)
     try {
       let response = await axios.post(API.SET_ROLE, formData,
         {
@@ -125,9 +125,9 @@ export default class extends BaseService {
         }
       )
       console.log(response)
-      return response;
+      return response
     } catch (error) {
-      return error.response.data;
+      return error.response.data
     }
   }
 }

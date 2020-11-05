@@ -88,8 +88,8 @@ export const api_request = (opts = {}) => {
             console.error(e)
         }
     }).then((url)=>{
-        console.log(url);
-    });
+        console.log(url)
+    })
 *
 * */
 export const upload_file = async (fileObject, opts = {}) => {

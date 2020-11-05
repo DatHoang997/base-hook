@@ -1,6 +1,6 @@
-import {useState, useEffect} from "react";
-import {useHistory} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useState, useEffect} from "react"
+import {useHistory} from "react-router-dom"
+import {useDispatch, useSelector} from "react-redux"
 import store from '@/store'
 // import {setupWeb3} from '../util/auth'
 
@@ -9,7 +9,7 @@ export function useAuth () {
   // const history = useHistory()
   // const dispatch = useDispatch()
   // const wallet = useSelector(state => state.user.wallet)
-  // const merchantAction = store.getRedux('user').actions;
+  // const merchantAction = store.getRedux('user').actions
 
   // useEffect(() => {
   //   async function verifyToken() {

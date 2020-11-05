@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import _ from 'lodash'
 import {Route, Switch, useHistory, Redirect} from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { Router } from "react-router";
+import { Router } from "react-router"
 import store from '@/store'
 import config from '@/config'
 import Helmet from 'react-helmet'

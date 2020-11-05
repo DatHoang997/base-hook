@@ -1,9 +1,9 @@
-const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const util = require('./util');
-const resolve = util.resolve;
+const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const util = require('./util')
+const resolve = util.resolve
 
 module.exports = {
   entry: ['babel-polyfill', resolve('src/app.js')],
@@ -124,4 +124,4 @@ module.exports = {
       to: 'assets'
     }])
   ]
-};
+}

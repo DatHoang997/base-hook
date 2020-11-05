@@ -1,33 +1,33 @@
-const path = require('path');
-const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const eslintFormatter = require('react-dev-utils/eslintFormatter');
-const common = require('./common.js');
-const util = require('./util');
-const resolve = util.resolve;
+const path = require('path')
+const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const merge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const autoprefixer = require('autoprefixer')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const eslintFormatter = require('react-dev-utils/eslintFormatter')
+const common = require('./common.js')
+const util = require('./util')
+const resolve = util.resolve
 
 const prodEnv = {
   NODE_ENV: JSON.stringify('production'),
   PLATFORM_ENV: JSON.stringify('web'),
   SERVER_URL: JSON.stringify('https://api.poc.me/api')
-};
+}
 
 const stagingEnv = {
   NODE_ENV: JSON.stringify('staging'),
   PLATFORM_ENV: JSON.stringify('web'),
   SERVER_URL: JSON.stringify('https://staging-server.com/api')
-};
+}
 
-const cssFilename_lib = 'static/css/lib.css?[hash:8]';
-const cssFilename_app = 'static/css/app.css?[hash:8]';
-const extractCSS_LIB = new ExtractTextPlugin(cssFilename_lib);
-const extractCSS_APP = new ExtractTextPlugin(cssFilename_app);
+const cssFilename_lib = 'static/css/lib.css?[hash:8]'
+const cssFilename_app = 'static/css/app.css?[hash:8]'
+const extractCSS_LIB = new ExtractTextPlugin(cssFilename_lib)
+const extractCSS_APP = new ExtractTextPlugin(cssFilename_app)
 module.exports = merge(common, {
   cache: false,
   performance: {
@@ -155,4 +155,4 @@ module.exports = merge(common, {
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ]
-});
+})

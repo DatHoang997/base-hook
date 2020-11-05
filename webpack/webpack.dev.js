@@ -1,11 +1,11 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const webpackNotifier = require('webpack-notifier');
-const merge = require('webpack-merge');
-const common = require('./common.js');
-const util = require('./util');
-const resolve = util.resolve;
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+const webpackNotifier = require('webpack-notifier')
+const merge = require('webpack-merge')
+const common = require('./common.js')
+const util = require('./util')
+const resolve = util.resolve
 
 module.exports = merge(common, {
   cache: true, // for rebuilding faster
@@ -99,4 +99,4 @@ module.exports = merge(common, {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ]
-});
+})

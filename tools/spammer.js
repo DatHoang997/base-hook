@@ -1,7 +1,7 @@
 const VolatileTokenData = require('./../build/contracts/VolatileToken.json')
 const StableTokenData = require('./../build/contracts/StableToken.json')
 const SeigniorageData = require('./../build/contracts/Seigniorage.json')
-const Web3 = require('web3');
+const Web3 = require('web3')
 const Tx = require('ethereumjs-tx')
 const BigNumber = require('bignumber.js')
 const crypto = require('crypto')
@@ -93,7 +93,7 @@ var web3 = new Web3(new Web3.providers.HttpProvider(endPoint))
 var VolatileToken = new web3.eth.Contract(CONTRACTS.VolatileToken.abi, CONTRACTS.VolatileToken.address)
 var StableToken = new web3.eth.Contract(CONTRACTS.StableToken.abi, CONTRACTS.StableToken.address)
 var Seigniorage = new web3.eth.Contract(CONTRACTS.Seigniorage.abi, CONTRACTS.Seigniorage.address)
-var myAddress = '0x95e2fcBa1EB33dc4b8c6DCBfCC6352f0a253285d';
+var myAddress = '0x95e2fcBa1EB33dc4b8c6DCBfCC6352f0a253285d'
 var privateKey = Buffer.from('a0cf475a29e527dcb1c35f66f1d78852b14d5f5109f75fa4b38fbe46db2022a5', 'hex')
 
 var myBalance
@@ -113,7 +113,7 @@ async function trade(nonce, _orderType, _haveAmount, _wantAmount) {
     toDeposit = new BigNumber(toDeposit).toFixed(0)
   }
   if (BigNumber(toDeposit).isGreaterThan(0)) myBalance = 0
-  const index = '0x' + crypto.randomBytes(32).toString('hex');
+  const index = '0x' + crypto.randomBytes(32).toString('hex')
   console.log('current balance xxx', myBalance, 'toDeposit', toDeposit, 'index', index)
   let rawTransaction = {
     'from': myAddress,
@@ -125,7 +125,7 @@ async function trade(nonce, _orderType, _haveAmount, _wantAmount) {
     'nonce': web3.utils.toHex(nonce)
   }
   console.log(rawTransaction)
-  let transaction = new Tx(rawTransaction);
+  let transaction = new Tx(rawTransaction)
   // signing transaction with private key
   transaction.sign(privateKey)
   // sending transacton via web3 module

@@ -1,7 +1,7 @@
 const VolatileTokenData = require('./../build/contracts/VolatileToken.json')
 const StableTokenData = require('./../build/contracts/StableToken.json')
 const SeigniorageData = require('./../build/contracts/Seigniorage.json')
-const Web3 = require('web3');
+const Web3 = require('web3')
 const Tx = require('ethereumjs-tx')
 const BN = require('bn.js')
 const BigNumber = require('bignumber.js')
@@ -31,7 +31,7 @@ const UNITS =
   'NUSD': BigNumber(10).pow(DECIMALS.nusd)
 }
 
-const AMOUNT_MAX_DIGIT = 36;
+const AMOUNT_MAX_DIGIT = 36
 
 const CONTRACTS =
   {
@@ -55,7 +55,7 @@ const CONTRACTS =
 var web3 = new Web3(new Web3.providers.HttpProvider(endPoint))
 var VolatileToken = new web3.eth.Contract(CONTRACTS.VolatileToken.abi, CONTRACTS.VolatileToken.address)
 var StableToken = new web3.eth.Contract(CONTRACTS.StableToken.abi, CONTRACTS.StableToken.address)
-var myAddress = '0xd638dc353687169d117df1933ba93fcc1ff42834';
+var myAddress = '0xd638dc353687169d117df1933ba93fcc1ff42834'
 var privateKey = Buffer.from('4c668fce6f03044f74ccd256b837a485a809562a55947abdfcb934d8cf8fe631', 'hex')
 
 var myBalance
@@ -70,46 +70,46 @@ async function trade (nonce, orderType) {
   const wantToken = orderType !== 'sell' ? VolatileToken : StableToken
 
   // adjust _wantAmount to the demand/supply
-  //let supplyHave = await haveToken.methods.totalSupply().call();
-  const balanceHave = new BN(await haveToken.methods.balanceOf(myAddress).call());
-  const supplyHave = new BN(await haveToken.methods.totalSupply().call());
-  const supplyWant = new BN(await wantToken.methods.totalSupply().call());
-  console.log('balanceHave', balanceHave.toString(), 'supplyHave', supplyHave.toString(), 'supplyWant', supplyWant.toString());
+  //let supplyHave = await haveToken.methods.totalSupply().call()
+  const balanceHave = new BN(await haveToken.methods.balanceOf(myAddress).call())
+  const supplyHave = new BN(await haveToken.methods.totalSupply().call())
+  const supplyWant = new BN(await wantToken.methods.totalSupply().call())
+  console.log('balanceHave', balanceHave.toString(), 'supplyHave', supplyHave.toString(), 'supplyWant', supplyWant.toString())
   if (balanceHave.clone().shln(1).lt(supplyHave)) {
-    console.log('have too little token, don\'t order');
+    console.log('have too little token, don\'t order')
     return
   }
-  let have = balanceHave.clone().shrn(6);
-  let want = supplyWant.clone().shrn(6);
+  let have = balanceHave.clone().shrn(6)
+  let want = supplyWant.clone().shrn(6)
 
   // wiggle 16%
-  const wiggle = new BN(Math.floor(Math.random() * 128)).mul(want).shrn(13);
+  const wiggle = new BN(Math.floor(Math.random() * 128)).mul(want).shrn(13)
   if (orderType === 'sell') {
     want.add(wiggle)
   } else {
     want.sub(wiggle)
   }
 
-  console.log('have', have.toString(), 'want', want.toString(), 'wiggle', wiggle.toString());
+  console.log('have', have.toString(), 'want', want.toString(), 'wiggle', wiggle.toString())
 
-  //cap(have, want, 128);
+  //cap(have, want, 128)
   const bitLength = 128
   if (have.bitLength() > bitLength || want.bitLength() > bitLength) {
-    const toShift = Math.max(have.bitLength(), want.bitLength()) - bitLength;
+    const toShift = Math.max(have.bitLength(), want.bitLength()) - bitLength
     console.log("toShift = ", toShift)
-    have = have.shrn(toShift);
-    want = want.shrn(toShift);
+    have = have.shrn(toShift)
+    want = want.shrn(toShift)
 
     if (have.isZero()) {
-      have = new BN(1);
+      have = new BN(1)
     }
     if (want.isZero()) {
-      want = new BN(1);
+      want = new BN(1)
     }
-    console.log('capped have', have.toString(), 'capped want', want.toString());
+    console.log('capped have', have.toString(), 'capped want', want.toString())
   }
 
-  const index = '0x' + crypto.randomBytes(32).toString('hex');
+  const index = '0x' + crypto.randomBytes(32).toString('hex')
 
   let rawTransaction = {
     'from': myAddress,
@@ -121,7 +121,7 @@ async function trade (nonce, orderType) {
     'nonce': web3.utils.toHex(nonce)
   }
   //console.log(rawTransaction)
-  let transaction = new Tx(rawTransaction);
+  let transaction = new Tx(rawTransaction)
   // signing transaction with private key
   transaction.sign(privateKey)
   // sending transacton via web3 module

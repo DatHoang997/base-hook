@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useCookies } from 'react-cookie';
+import { useCookies } from 'react-cookie'
 
 // Request interceptor
 axios.interceptors.request.use(request => {
