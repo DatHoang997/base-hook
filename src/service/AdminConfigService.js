@@ -5,12 +5,12 @@ import {thousands} from '@/util/help.js'
 
 let API_URL = process.env.SERVER_URL
 const API = {
-  PUT_POC_STATS   : API_URL + '/pocstats/',
-  GET_HISTORY     : API_URL + '/pocstats/history/',
-  DELETE_STATS    : API_URL + '/pocstats/delete/',
-  VND_POC_PRICE   : API_URL + '/getprice/poc/vnd/',
-  USD_POC_PRICE   : API_URL + '/getprice/poc/usd/',
-  SET_ROLE        : API_URL + '/auth/set-role/'
+  PUT_POC_STATS : API_URL + '/pocstats/',
+  GET_HISTORY : API_URL + '/pocstats/history/',
+  DELETE_STATS : API_URL + '/pocstats/delete/',
+  VND_POC_PRICE : API_URL + '/getprice/poc/vnd/',
+  USD_POC_PRICE : API_URL + '/getprice/poc/usd/',
+  SET_ROLE : API_URL + '/auth/set-role/'
 }
 
 let foundation

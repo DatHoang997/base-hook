@@ -2,8 +2,8 @@ pragma solidity ^0.5.2;
 
 library util {
     uint256 constant MaxUint256 = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
-    int256 constant MaxInt256   = 0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
-    int256 constant MinInt256   = MaxInt256 + 1;
+    int256 constant MaxInt256 = 0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
+    int256 constant MinInt256 = MaxInt256 + 1;
 
     function abs(int a) internal pure returns (uint) {
         return uint(a > 0 ? a : -a);

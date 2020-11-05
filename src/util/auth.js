@@ -7,9 +7,9 @@ import Web3 from "web3";
 
 
 // export const setupWeb3 = async (callback = null) => {
-//   const userRedux      = store.getRedux('user')
-//   let isRequest        = false
-//   let isLoggedIn       = false
+//   const userRedux = store.getRedux('user')
+//   let isRequest = false
+//   let isLoggedIn = false
 
 //   await window.web3.eth.getAccounts(async (err, accounts) => {
 //     if (err) return
@@ -33,9 +33,9 @@ import Web3 from "web3";
 
 
 // export const loginEzdefi = (callback) => {
-//   const userRedux      = store.getRedux('user')
+//   const userRedux = store.getRedux('user')
 //   const contractsRedux = store.getRedux('contracts')
-//   const web3           = new Web3(window.ethereum)
+//   const web3 = new Web3(window.ethereum)
 
 //   const contracts = {
 //     // ReadWrite: new web3.eth.Contract(CONTRACTS.ReadWrite.abi, CONTRACTS.ReadWrite.address),
